@@ -145,7 +145,7 @@ function(           data.prep.obj = NULL,
       Xall <- cbind(X1.scaled,X0.scaled)
       Xall <- cbind(rep(1,ncol(Xall)),t(Xall))
       Zall <- cbind(Z1,Z0)
-      Beta <- try(solve(t(Xall)%*%Xall)%*%t(Xall)%*%t(Zall),silent=TRUE)
+      Beta <- try(solve(t(Xall)%*%Xall)%*%t(Xall)%*%t(Zall),silent=TRUE,tol=1e-20)
       
       # if inverses did not work, we
       # stick with first results    
